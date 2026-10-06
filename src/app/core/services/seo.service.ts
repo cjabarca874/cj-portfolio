@@ -1,0 +1,7 @@
+import {SITE_URL} from '../constants/site';
+import {projects} from '../constants/portfolio';
+import {inject,Injectable} from '@angular/core';
+import {Title,Meta} from '@angular/platform-browser';
+import {DOCUMENT} from '@angular/common';
+import {Router} from '@angular/router';
+@Injectable({providedIn:'root'}) export class SeoService {private title=inject(Title);private meta=inject(Meta);private doc=inject(DOCUMENT);private router=inject(Router);update(){let route=this.router.routerState.snapshot.root;while(route.firstChild)route=route.firstChild;const title=(route.title||'Web Designer & Developer')+' — CJ Abarca';const description=projects.find(p=>p.slug===route.paramMap.get('slug'))?.description||route.data['description']||'CJ Abarca brings UI/UX, web design, WordPress development and graphic design together to create clear, responsive websites.';this.title.setTitle(title);this.meta.updateTag({name:'description',content:description});this.meta.updateTag({property:'og:title',content:title});this.meta.updateTag({property:'og:description',content:description});this.meta.updateTag({property:'og:type',content:'website'});const url=SITE_URL+this.router.url.split('?')[0];this.meta.updateTag({property:'og:url',content:url});let link=this.doc.querySelector<HTMLLinkElement>('link[rel="canonical"]');if(!link){link=this.doc.createElement('link');link.rel='canonical';this.doc.head.appendChild(link);}link.href=url;}}

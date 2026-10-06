@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build && cp dist/client/index.csr.html dist/client/404.html",
+  "outputDirectory": "dist/client",
+  "cleanUrls": true,
+  "trailingSlash": false
+}
