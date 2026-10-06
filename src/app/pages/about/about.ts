@@ -1,2 +1,48 @@
-import {Component,ChangeDetectionStrategy} from '@angular/core';import {RouterLink} from '@angular/router';
-@Component({changeDetection:ChangeDetectionStrategy.OnPush,imports:[RouterLink],template:`<div class="page-heading"><div><div class="eyebrow coral">BEHIND THE WORK</div><h1>Creative mind. Builder at heart.</h1><p>Hi, I’m CJ Abarca — graphic and web designer.</p></div></div><div class="two-column"><img class="large-photo" src="/images/About.webp" width="800" height="900" alt="CJ Abarca working on web design and development"/><article class="card content-card"><h2>Design that looks good.<br>And works beautifully.</h2><p>I’m CJ Abarca, a graphic and web designer with experience in UI/UX and WordPress development.</p><p>I turn visual ideas into responsive websites using Bricks Builder, Elementor, and custom CSS and JavaScript. My work includes landing pages, redesigns, and ongoing website updates.</p><p>I also have experience with hosting and website infrastructure tools, including Cloudways, Cloudflare, and Pressable. I care about websites that look polished, feel easy to use, and communicate clearly.</p><div class="tags"><span>UI/UX Design</span><span>Web Design</span><span>WordPress Development</span><span>Graphic Design</span></div><div class="actions"><a class="button primary" routerLink="/projects">Explore my work →</a><a class="button secondary" routerLink="/contact">Let’s talk ↗</a></div></article></div>`})export class About {}
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink],
+  template: `<div class="page-heading">
+      <div>
+        <div class="eyebrow coral">BEHIND THE WORK</div>
+        <h1>Creative mind. Builder at heart.</h1>
+        <p>Hi, I’m CJ Abarca — graphic and web designer.</p>
+      </div>
+    </div>
+    <div class="two-column">
+      <img
+        class="large-photo"
+        src="/images/About.webp"
+        width="800"
+        height="900"
+        alt="CJ Abarca working on web design and development"
+      />
+      <article class="card content-card">
+        <h2>Design that looks good.<br />And works beautifully.</h2>
+        <p>
+          I’m CJ Abarca, a graphic and web designer with experience in UI/UX and WordPress
+          development.
+        </p>
+        <p>
+          I turn visual ideas into responsive websites using Bricks Builder, Elementor, and custom
+          CSS and JavaScript. My work includes landing pages, redesigns, and ongoing website
+          updates.
+        </p>
+        <p>
+          I also have experience with hosting and website infrastructure tools, including Cloudways,
+          Cloudflare, and Pressable. I care about websites that look polished, feel easy to use, and
+          communicate clearly.
+        </p>
+        <div class="tags">
+          <span>UI/UX Design</span><span>Web Design</span><span>WordPress Development</span
+          ><span>Graphic Design</span>
+        </div>
+        <div class="actions">
+          <a class="button primary" routerLink="/projects">Explore my work →</a
+          ><a class="button secondary" routerLink="/contact">Let’s talk ↗</a>
+        </div>
+      </article>
+    </div>`,
+})
+export class About {}
