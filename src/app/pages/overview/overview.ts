@@ -33,7 +33,7 @@ import { projects } from '../../core/constants/portfolio';
           /></a>
         </div>
         <div class="intro-bottom">
-          <span>UI/UX DESIGN</span><span>WEB DESIGN</span><span>WORDPRESS</span>
+          <span>UI/UX DESIGN</span><span>WEB DESIGN</span><span>WORDPRESS</span><span>GRAPHIC DESIGN</span>
         </div>
         <span class="intro-star" aria-hidden="true">✳</span>
       </article>
@@ -61,26 +61,26 @@ import { projects } from '../../core/constants/portfolio';
           <span><app-icon name="spark" /> IN THE SPOTLIGHT</span
           ><span class="tiny-tag">FEATURED WORK</span>
         </div>
-        <a routerLink="/projects/huts-haven" class="featured-image"
+        <a routerLink="/projects/notable" class="featured-image"
           ><img
             class="cover-backdrop"
-            src="/images/huts-haven.webp"
+            src="/images/notable.webp"
             alt=""
             aria-hidden="true" /><img
             class="cover-image"
-            ngSrc="/images/huts-haven.webp"
+            ngSrc="/images/notable.webp"
             fill
             priority
             sizes="(max-width: 767px) 100vw, 55vw"
-            alt="Huts Haven nature-inspired website concept"
+            alt="Notable Design Co. website"
         /></a>
         <div class="featured-caption">
           <div>
-            <div class="eyebrow coral">WEB DESIGN · CONCEPT</div>
-            <h3>Huts Haven</h3>
-            <p>A digital escape, inspired by nature.</p>
+            <div class="eyebrow coral">UI/UX · WORDPRESS</div>
+            <h3>Notable Design Co.</h3>
+            <p>Websites that support the reputation you’ve built.</p>
           </div>
-          <a class="round-link" routerLink="/projects/huts-haven" aria-label="View Huts Haven"
+          <a class="round-link" routerLink="/projects/notable" aria-label="View Notable Design Co."
             ><app-icon name="external"
           /></a>
         </div>
@@ -105,29 +105,40 @@ import { projects } from '../../core/constants/portfolio';
           <span><app-icon name="tools" /> MY EVERYDAY TOOLKIT</span
           ><a routerLink="/skills" aria-label="View all skills"><app-icon name="external" /></a>
         </div>
-        <div class="tool-grid">
-          @for (t of tools; track t.name) {
-            <div>
-              <span class="tool-symbol" [style.--tool]="t.color">{{ t.mark }}</span
-              ><span>{{ t.name }}</span>
+        @for (g of toolGroups; track g.label) {
+          <div class="tool-group">
+            <h3 class="tool-group-label"><span>{{ g.step }}</span> {{ g.label }}</h3>
+            <div class="tool-grid">
+              @for (t of g.tools; track t.name) {
+                <div>
+                  <span class="tool-symbol" [class.tool-symbol--dark]="t.dark"
+                    ><img [src]="'/icons/tools/' + (t.icon.includes('.') ? t.icon : t.icon + '.svg')" alt="" width="26" height="26" loading="lazy" /></span
+                  ><span>{{ t.name }}</span>
+                </div>
+              }
             </div>
-          }
-        </div>
+          </div>
+        }
       </article>
       <article class="card experience-widget">
         <div class="card-label">
           <span><app-icon name="briefcase" /> WHERE I’VE BEEN</span
           ><a routerLink="/experience" aria-label="View experience"><app-icon name="external" /></a>
         </div>
-        <div class="career">
-          <span class="company-mark">n.</span>
-          <div>
-            <span class="eyebrow coral">ONGOING COLLABORATION</span>
-            <h3>Notable Design Co.</h3>
-            <p>UI/UX & WordPress Developer</p>
-          </div>
-        </div>
-        <p>Designing, building, and refining digital experiences across brands and platforms.</p>
+        <ol class="career-list">
+          @for (c of careers; track c.company) {
+            <li class="career">
+              <span class="company-mark" [class.company-mark--dark]="c.dark" [class.company-mark--fill]="c.fill"
+                ><img [src]="c.logo" [alt]="c.company + ' logo'" loading="lazy"
+              /></span>
+              <div>
+                <span class="eyebrow coral">{{ c.period }}</span>
+                <h3>{{ c.company }}</h3>
+                <p>{{ c.role }}</p>
+              </div>
+            </li>
+          }
+        </ol>
       </article>
     </section>
     <div class="section-heading">
@@ -144,7 +155,7 @@ import { projects } from '../../core/constants/portfolio';
     </div>`,
 })
 export class Overview {
-  selected = projects.filter((p) => ['notable', 'comptech', 'gps-drone'].includes(p.id));
+  selected = projects.filter((p) => ['huts-haven', 'comptech', 'gps-drone'].includes(p.id));
   services = [
     { title: 'UI/UX Design', text: 'Clarity in every interaction', icon: 'pen', route: '/ui-ux' },
     {
@@ -166,12 +177,73 @@ export class Overview {
       route: '/graphic-design',
     },
   ];
-  tools = [
-    { name: 'Figma', mark: 'Fi', color: '#ff8a72' },
-    { name: 'WordPress', mark: 'W', color: '#88bce0' },
-    { name: 'Bricks', mark: 'B', color: '#f24836' },
-    { name: 'Elementor', mark: 'E', color: '#ec78a5' },
-    { name: 'CSS', mark: '#', color: '#82a7ff' },
-    { name: 'JavaScript', mark: 'JS', color: '#eed05c' },
+  careers = [
+    {
+      company: 'Notable Design Co.',
+      role: 'UI/UX Designer & WordPress Developer',
+      period: 'Mar 2025 – Sep 2026',
+      logo: '/images/logos/notable.png',
+    },
+    {
+      company: 'Freelance',
+      role: 'Freelance UI/UX Designer',
+      period: 'Feb 2024 – Jan 2025',
+      logo: '/images/logos/freelancer.png',
+    },
+    { company: 'Awesome CX', role: 'IT Support', period: '2024', logo: '/images/logos/awesome-cx.png', fill: true },
+    {
+      company: 'Lines + Pixels',
+      role: 'UI Designer',
+      period: 'Apr 2023 – Jan 2024',
+      logo: '/images/logos/lines-pixels.png',
+      dark: true,
+    },
+  ];
+  toolGroups: { step: string; label: string; tools: { name: string; icon: string; dark?: boolean }[] }[] = [
+    {
+      step: '01',
+      label: 'Design',
+      tools: [
+        { name: 'Figma', icon: 'figma' },
+        { name: 'Photoshop', icon: 'photoshop' },
+        { name: 'Illustrator', icon: 'illustrator' },
+        { name: 'After Effects', icon: 'after-effects' },
+      ],
+    },
+    {
+      step: '02',
+      label: 'Build',
+      tools: [
+        { name: 'HTML', icon: 'html' },
+        { name: 'CSS', icon: 'css' },
+        { name: 'JavaScript', icon: 'javascript' },
+        { name: 'jQuery', icon: 'jquery' },
+        { name: 'PHP', icon: 'php' },
+        { name: 'Bootstrap', icon: 'bootstrap' },
+        { name: 'Tailwind', icon: 'tailwind' },
+        { name: 'Angular', icon: 'angular' },
+      ],
+    },
+    {
+      step: '03',
+      label: 'CMS & Builders',
+      tools: [
+        { name: 'WordPress', icon: 'wordpress' },
+        { name: 'Elementor', icon: 'elementor' },
+        { name: 'Bricks', icon: 'bricks', dark: true },
+        { name: 'Wix', icon: 'wix' },
+        { name: 'Squarespace', icon: 'squarespace' },
+        { name: 'Leadpages', icon: 'leadpages.png', dark: true },
+      ],
+    },
+    {
+      step: '04',
+      label: 'Hosting',
+      tools: [
+        { name: 'Cloudflare', icon: 'cloudflare' },
+        { name: 'Cloudways', icon: 'cloudways' },
+        { name: 'Pressable', icon: 'pressable' },
+      ],
+    },
   ];
 }

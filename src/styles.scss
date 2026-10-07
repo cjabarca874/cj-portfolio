@@ -572,3 +572,99 @@ main { padding: 34px 36px 44px; max-width: 1640px; margin: auto; min-height: cal
 .notice p { color: inherit; margin: 0; }
 .notice-action { margin-top: 12px; min-height: 40px; }
 .form-field input[aria-invalid='true'], .form-field textarea[aria-invalid='true'] { border-color: var(--color-error); }
+
+/* ---------- Graphic design gallery ---------- */
+.filter-count { margin-left: 6px; font-size: 12px; opacity: 0.6; }
+.art-section + .art-section { margin-top: 44px; }
+.art-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border); }
+.art-section-heading h2 { font-size: 24px; }
+.art-section-heading p { font-size: 14px; }
+.art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.art-tile {
+  display: flex; flex-direction: column; padding: 0; text-align: left; overflow: hidden;
+  border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-surface); box-shadow: var(--shadow-card);
+  transition: border-color 0.25s, transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.art-tile:hover { border-color: var(--color-primary-line); transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.art-frame { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; isolation: isolate; background: var(--color-surface-tertiary); }
+.art-frame .art-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 1; filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35)); transition: transform 0.4s var(--ease); }
+.art-tile:hover .art-image { transform: scale(1.04); }
+.art-tile .art-caption { padding: 14px 16px; font-size: 14px; font-weight: 600; }
+.lightbox-header .eyebrow { display: block; margin-bottom: 4px; }
+@media (max-width: 767px) { .art-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; } .art-tile .art-caption { padding: 10px 12px; font-size: 13px; } }
+
+/* ---------- Modal-opening cards ---------- */
+button.project-image { width: 100%; padding: 0; border: 0; cursor: zoom-in; font: inherit; color: inherit; }
+.link-button { padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; text-align: left; display: inline-flex; align-items: center; gap: 8px; }
+.project-copy h3 .link-button:hover { color: var(--color-accent); }
+.project-links .link-button { color: var(--color-text-secondary); }
+.project-links .link-button:hover { color: var(--color-accent); }
+.project-links .link-button app-icon { width: 15px; }
+
+/* ---------- Brand-logo toolkit ---------- */
+.tool-grid { grid-template-columns: repeat(4, 1fr); }
+.tool-grid > div { text-align: center; line-height: 1.3; }
+.tool-symbol { color: inherit; background: #fff; border: 1px solid var(--color-border); }
+.tool-symbol img { width: 26px; height: 26px; object-fit: contain; }
+.tool-symbol--dark { background: #111318; border-color: #2a2f38; }
+.company-mark { width: 64px; height: 48px; padding: 8px; background: #fff; border: 1px solid var(--color-border); }
+.company-mark img { width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 1199px) { .tool-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Consistent uppercase labels ---------- */
+.eyebrow, .project-copy .eyebrow span { text-transform: uppercase; }
+
+/* ---------- Motion graphics ---------- */
+.art-frame { position: relative; }
+.art-tile { position: relative; }
+.play-badge {
+  position: absolute; z-index: 2; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-content: center; color: #fff; background: rgba(10, 12, 16, 0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.play-badge app-icon { width: 16px; height: 16px; margin-left: 2px; }
+.lightbox-video { display: block; width: 100%; max-height: 72dvh; margin: auto; border-radius: 12px; background: #000; }
+
+/* ---------- Sticky filter bar ---------- */
+/* Page hosts must be blocks so the bar can stick inside them. */
+main > router-outlet + * { display: block; }
+.filters-anchor { scroll-margin-top: 72px; }
+.filters--sticky {
+  position: sticky; top: 72px; z-index: 15;
+  margin: 0 -36px 25px; padding: 12px 36px;
+  background: var(--color-glass); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.filters--sticky:has(+ *) { border-bottom-color: var(--color-border); }
+@media (max-width: 1199px) { .filters--sticky { margin: 0 -25px 25px; padding: 12px 25px; } }
+@media (max-width: 767px) {
+  .filters-anchor { scroll-margin-top: 62px; }
+  .filters--sticky {
+    top: 62px; margin: 0 -16px 20px; padding: 10px 16px;
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .filters--sticky::-webkit-scrollbar { display: none; }
+  .filters--sticky button { flex-shrink: 0; }
+}
+
+/* ---------- Toolkit groups ---------- */
+.stack-widget { padding-bottom: 10px; }
+.tool-group { padding: 0 22px 18px; }
+.tool-group-label {
+  font-family: var(--font-primary); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--color-text-muted); margin: 4px 0 10px; display: flex; align-items: center; gap: 8px;
+}
+.tool-group-label span { color: var(--color-accent); }
+.tool-group .tool-grid { padding: 0; gap: 10px; }
+.tool-group .tool-grid > div { padding: 12px 6px; }
+
+/* ---------- Career list ---------- */
+.career-list { list-style: none; margin: 0; padding: 0 0 8px; }
+.career-list .career { padding: 14px 24px; align-items: center; }
+.career-list .career + .career { border-top: 1px solid var(--color-border); }
+.career-list .career h3 { font-size: 17px; margin: 3px 0 2px; }
+.career-list .career p { font-size: 14px; }
+.company-mark { width: 64px; height: 48px; flex-shrink: 0; overflow: hidden; }
+.company-mark--dark { background: #000; border-color: #1f2229; }
+.company-mark--fill { padding: 0; }
+.company-mark--fill img { object-fit: cover; }
