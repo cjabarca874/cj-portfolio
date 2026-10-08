@@ -668,3 +668,23 @@ main > router-outlet + * { display: block; }
 .company-mark--dark { background: #000; border-color: #1f2229; }
 .company-mark--fill { padding: 0; }
 .company-mark--fill img { object-fit: cover; }
+
+/* ---------- Labelled theme toggle ---------- */
+/* Shows the mode you will switch to: "Light mode" while dark, "Dark mode" while light. */
+.theme-toggle { width: auto; height: 40px; padding: 0 14px 0 11px; gap: 8px; display: inline-flex; align-items: center; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.theme-icons { display: grid; width: 18px; height: 18px; }
+.theme-icons app-icon { grid-area: 1 / 1; }
+.theme-label--to-dark { display: none; }
+:root[data-theme='light'] .theme-label--to-light { display: none; }
+:root[data-theme='light'] .theme-label--to-dark { display: inline; }
+@media (max-width: 767px) { .theme-toggle { width: 38px; height: 38px; padding: 0; justify-content: center; } .theme-label { display: none !important; } }
+
+/* ---------- Dot pattern + soft glow on every card ---------- */
+/* Layers (top → bottom): corner glow, fade that keeps dots to the lower-right, dot grid, base surface. */
+.card:not(.intro-card) {
+  background:
+    radial-gradient(ellipse 60% 45% at 100% 0%, var(--color-primary-soft), transparent 70%),
+    linear-gradient(125deg, var(--color-surface) 45%, transparent 100%),
+    radial-gradient(var(--color-border-strong) 1px, transparent 1px) 0 0 / 22px 22px,
+    var(--color-surface);
+}
