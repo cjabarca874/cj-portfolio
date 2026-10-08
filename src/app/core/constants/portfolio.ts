@@ -68,6 +68,11 @@ g('logo-ww-sari-sari','WW Sari-Sari Store','graphics/logo-ww-sari-sari.webp','Lo
 g('logo-jk-food-bar','J&K Food Bar','graphics/logo-jk-food-bar.webp','Logos'),
 g('logo-bp-threads','BP Threads','graphics/logo-bp-threads.webp','Logos'),
 ...['Aurum','College of Computer Education','Shepherd International','Hutshaven','Brand 05','Brand 06','Brand 07','Brand 08'].map((title,i)=>g('brand-'+(i+1),title,'Logo-'+(i+1)+'.webp','Logos')),
+g('board-jezels-thrifted','Jezels Thrifted — Brand Board','brand-boards/jezels-thrifted.webp','Brand Boards'),
+g('board-stay-well','Stay Well Chiropractic Pasadena — Brand Board','brand-boards/stay-well.webp','Brand Boards'),
+g('board-bp-threads','BP Threads — Brand Board','brand-boards/bp-threads.webp','Brand Boards'),
+g('board-jk-food-bar','J&K Food Bar — Brand Board','brand-boards/jk-food-bar.webp','Brand Boards'),
+g('board-pwts-hardware','PWTS Hardware — Brand Board','brand-boards/pwts-hardware.webp','Brand Boards'),
 ...[['aurum','Aurum'],['college','College of Computer Education'],['shepherd','Shepherd International'],['hutshaven','Hutshaven']].map(([file,title])=>g('board-'+file,title+' — Concept Brand Board','brand-boards/'+file+'.webp','Brand Boards'))];
 
 
