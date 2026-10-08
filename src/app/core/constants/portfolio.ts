@@ -73,6 +73,10 @@ g('board-stay-well','Stay Well Chiropractic Pasadena — Brand Board','brand-boa
 g('board-bp-threads','BP Threads — Brand Board','brand-boards/bp-threads.webp','Brand Boards'),
 g('board-jk-food-bar','J&K Food Bar — Brand Board','brand-boards/jk-food-bar.webp','Brand Boards'),
 g('board-pwts-hardware','PWTS Hardware — Brand Board','brand-boards/pwts-hardware.webp','Brand Boards'),
+g('board-sari-sari-retro','Sari-Sari Store — Brand Board (Retro)','brand-boards/sari-sari-retro.webp','Brand Boards'),
+g('board-ww-sari-sari','WW Sari-Sari Store — Brand Board','brand-boards/ww-sari-sari.webp','Brand Boards'),
+g('board-stay-well-teal','Stay Well Chiropractic Pasadena — Brand Board (Teal)','brand-boards/stay-well-teal.webp','Brand Boards'),
+g('board-shepherd-sunrise','Shepherd International — Brand Board (Sunrise)','brand-boards/shepherd-sunrise.webp','Brand Boards'),
 ...[['aurum','Aurum'],['college','College of Computer Education'],['shepherd','Shepherd International'],['hutshaven','Hutshaven']].map(([file,title])=>g('board-'+file,title+' — Concept Brand Board','brand-boards/'+file+'.webp','Brand Boards'))];
 
 
