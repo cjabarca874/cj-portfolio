@@ -39,7 +39,7 @@ export const graphicCategories:{name:GraphicCategory;description:string}[]=[
 {name:'Posters & Ads',description:'Event posters and social media ads.'},
 {name:'Motion Graphics',description:'Logo animations and motion videos made in After Effects.'},
 {name:'Logos',description:'Logo artwork and visual identity marks.'},
-{name:'Brand Boards',description:'Concept boards exploring colour, type, and brand applications.'}];
+{name:'Brand Boards',description:'Logos shown across signage, packaging, apparel, and other brand applications.'}];
 const g=(slug:string,title:string,file:string,category:GraphicCategory):Graphic=>({slug,title,image:'images/'+file,category});
 export const graphics:Graphic[]=[
 g('unwnd-dagmay-jersey-marble','Unwnd Dagmay — Jersey (Red Marble)','graphics/unwnd-dagmay-jersey-marble.webp','Jerseys'),
@@ -80,8 +80,7 @@ g('board-pwts-hardware','PWTS Hardware — Brand Board','brand-boards/pwts-hardw
 g('board-sari-sari-retro','Sari-Sari Store — Brand Board (Retro)','brand-boards/sari-sari-retro.webp','Brand Boards'),
 g('board-ww-sari-sari','WW Sari-Sari Store — Brand Board','brand-boards/ww-sari-sari.webp','Brand Boards'),
 g('board-stay-well-teal','Stay Well Chiropractic Pasadena — Brand Board (Teal)','brand-boards/stay-well-teal.webp','Brand Boards'),
-g('board-shepherd-sunrise','Shepherd International — Brand Board (Sunrise)','brand-boards/shepherd-sunrise.webp','Brand Boards'),
-...[['aurum','Aurum'],['college','College of Computer Education'],['shepherd','Shepherd International'],['hutshaven','Hutshaven']].map(([file,title])=>g('board-'+file,title+' — Concept Brand Board','brand-boards/'+file+'.webp','Brand Boards'))];
+g('board-shepherd-sunrise','Shepherd International — Brand Board','brand-boards/shepherd-sunrise.webp','Brand Boards')];
 
 
 export const graphicAsProject=(x:Graphic):Project=>({id:x.slug,slug:x.slug,title:x.title,category:'Graphic Design',description:graphicCategories.find(c=>c.name===x.category)?.description||'',image:x.image,technologies:[x.category]});
