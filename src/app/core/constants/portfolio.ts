@@ -32,13 +32,14 @@ export const projects:Project[]=[
 {id:'zens-tea-house',slug:'zens-tea-house',title:'Zen’s Tea House — Corporate Website',category:'Web & UI/UX',description:'A corporate website design for Zen’s Tea House across desktop and mobile.',image:'images/figma/zens-tea-house-thumb.webp',fullImage:'images/figma/zens-tea-house.webp',technologies:['Figma','UI/UX','WordPress'],liveUrl:'https://zenstea.com/',overview:['A corporate website design for Zen’s Tea House, separate from its online store, focused on the business behind the brand.','Pages include the home page, about, philanthropy, doctor collaboration, World Tea Expo business, franchise, and contact — each designed for desktop (1440px) and mobile (375px).'],focus:'Corporate Website, Desktop & Mobile'},
 {id:'colorsedge',slug:'colorsedge',title:'Colorsedge — Website Design',category:'Web & UI/UX',description:'A bold website design for an automotive refinishing company.',image:'images/figma/colorsedge-thumb.webp',fullImage:'images/figma/colorsedge.webp',technologies:['Figma','UI/UX','WordPress'],liveUrl:'https://colorsedge.com/',overview:['A high-fidelity website design for Colorsedge, an automotive refinishing company, built around a bold, high-contrast visual style.','The design covers the home page, about, products, locations, contact, and a resource library on paint codes, common paint problems, reducers, training, and refinish terminology.'],focus:'Web Design, Resource Pages, Product Pages'}
 ];
-export type GraphicCategory='Jerseys'|'Uniforms & Merch'|'Thumbnails'|'Posters & Ads'|'Motion Graphics'|'Logos'|'Brand Boards';
+export type GraphicCategory='Jerseys'|'Uniforms & Merch'|'Thumbnails'|'Posters & Ads'|'Social Media'|'Motion Graphics'|'Logos'|'Brand Boards';
 export interface Graphic {slug:string;title:string;image:string;category:GraphicCategory;/** MP4 shown in the lightbox; image is its poster frame. */video?:string;}
 export const graphicCategories:{name:GraphicCategory;description:string}[]=[
 {name:'Jerseys',description:'Sublimation basketball jersey sets — front, back, and shorts.'},
 {name:'Uniforms & Merch',description:'Polo uniforms and lanyards for churches, clinics, and organisations.'},
 {name:'Thumbnails',description:'Video and class thumbnails built for quick, bold recognition.'},
 {name:'Posters & Ads',description:'Event posters and social media ads.'},
+{name:'Social Media',description:'Social media carousels designed to be swiped slide by slide.'},
 {name:'Motion Graphics',description:'Logo animations and motion videos made in After Effects.'},
 {name:'Logos',description:'Logo artwork and visual identity marks.'},
 {name:'Brand Boards',description:'Logos shown across signage, packaging, apparel, and other brand applications.'}];
@@ -68,6 +69,12 @@ g('steezy-hip-hop','STEEZY — Hip Hop: Foundation Footwork','graphics/steezy-hi
 g('steezy-house','STEEZY — House: Footwork Fundamentals','graphics/steezy-house.webp','Thumbnails'),
 g('ozam-website-promo','Ozam Technologies — Website & Logo Offer','graphics/ozam-website-promo.webp','Posters & Ads'),
 g('tropa-ni-erning-poster','Tropa ni Erning Band — Event Poster','graphics/tropa-ni-erning-poster.webp','Posters & Ads'),
+g('fitlab-carousel-01','FitLab Carousel — 01 / 06: 5 Simple Habits to Get a Stronger You','graphics/fitlab-carousel-01.webp','Social Media'),
+g('fitlab-carousel-02','FitLab Carousel — 02 / 06: Be Consistent','graphics/fitlab-carousel-02.webp','Social Media'),
+g('fitlab-carousel-03','FitLab Carousel — 03 / 06: Fuel Your Body','graphics/fitlab-carousel-03.webp','Social Media'),
+g('fitlab-carousel-04','FitLab Carousel — 04 / 06: Strength Train Regularly','graphics/fitlab-carousel-04.webp','Social Media'),
+g('fitlab-carousel-05','FitLab Carousel — 05 / 06: Stay Active Daily','graphics/fitlab-carousel-05.webp','Social Media'),
+g('fitlab-carousel-06','FitLab Carousel — 06 / 06: Get Enough Rest','graphics/fitlab-carousel-06.webp','Social Media'),
 {...g('logo-animation','Abarca CJ — Logo Animation','graphics/logo-animation-poster.webp','Motion Graphics'),video:'videos/logo-animation.mp4'},
 {...g('holy-grail-motion','Holy Grail Wine Company — Motion Video','graphics/holy-grail-motion-poster.webp','Motion Graphics'),video:'videos/holy-grail-motion.mp4'},
 g('logo-davids-powerwash','David’s Powerwash','graphics/logo-davids-powerwash.webp','Logos'),
